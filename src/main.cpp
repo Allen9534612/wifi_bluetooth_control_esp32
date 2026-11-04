@@ -11,7 +11,7 @@ ServoControl servo1;
 ServoControl servo2;
 
 void onButtonPressed(const String &button) {
-    Serial.print("收到按鍵: ");
+    Serial.print("Received button: ");
     Serial.println(button);
 
     if (button.length() == 0) {

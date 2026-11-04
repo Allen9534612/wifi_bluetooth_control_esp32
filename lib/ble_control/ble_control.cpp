@@ -29,8 +29,8 @@ void BleControl::begin(const char *deviceName) {
     advertising->setScanResponse(true);
     BLEDevice::startAdvertising();
 
-    Serial.println("BLE 廣播已啟動");
-    Serial.print("裝置名稱: ");
+    Serial.println("BLE advertising started");
+    Serial.print("Device name: ");
     Serial.println(deviceName);
 }
 
@@ -38,7 +38,7 @@ void BleControl::handle() {
     // 斷線後要手動重新開始廣播，不然手機看不到裝置
     if (!_deviceConnected && _wasConnected) {
         BLEDevice::startAdvertising();
-        Serial.println("BLE 已斷線，重新開始廣播");
+        Serial.println("BLE disconnected, restarting advertising");
         _wasConnected = false;
     }
 }
@@ -49,13 +49,13 @@ void BleControl::onButtonPressed(ButtonCallback callback) {
 
 void BleControl::onConnect(BLEServer *server) {
     _deviceConnected = true;
-    Serial.println("BLE 裝置已連線");
+    Serial.println("BLE device connected");
 }
 
 void BleControl::onDisconnect(BLEServer *server) {
     _deviceConnected = false;
     _wasConnected = true;
-    Serial.println("BLE 裝置已斷線");
+    Serial.println("BLE device disconnected");
 }
 
 void BleControl::onWrite(BLECharacteristic *characteristic) {

@@ -3,7 +3,7 @@
 
 // ===== BLE 遙控設定 =====
 // 手機掃描 BLE 時看到的裝置名稱
-#define BLE_DEVICE_NAME "ESP32-Controller-BLE"
+#define BLE_DEVICE_NAME "Group 1"
 
 // ===== TT 馬達腳位（L298N / TB6612 等驅動板）=====
 // IN1/IN2：方向腳位，PWM：調速腳位
